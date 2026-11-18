@@ -108,6 +108,10 @@ npm run dev
 | `npm run db:start` / `db:stop` / `db:status` | Local Supabase stack |
 | `npm run db:reset` | Recreate local DB from migrations + seed |
 | `npm run db:types` | Regenerate `src/types/database.types.ts` |
+| `npm run db:test` | pgTAP database tests (`supabase/tests/database`) |
+| `npm run db:lint` | Supabase SQL linter |
+| `npm run db:seed` | Demo data for local development |
+| `npm run test:integration` | Integration tests against local Supabase |
 
 Local Supabase Studio (database UI): http://127.0.0.1:54323 · Local email inbox (Mailpit): http://127.0.0.1:54324
 
@@ -150,6 +154,20 @@ docs/                  project documentation
 ```
 
 ---
+
+## Database (Phase 2)
+
+Schema, RLS, booking functions and storage live in `supabase/migrations/`. Full documentation and ERD: [`docs/DATABASE.md`](docs/DATABASE.md).
+
+```bash
+npm run db:reset          # rebuild local DB from migrations (wipes local data)
+npm run db:types          # regenerate src/types/database.types.ts — commit the result
+npm run db:seed           # demo business + 5 users (password: Password123!)
+npm run db:test           # pgTAP database tests
+npm run test:integration  # concurrent-booking test against local Supabase
+```
+
+New schema change: `npx supabase migration new <name>`, write SQL, `npm run db:reset`, `npm run db:types`, add a test.
 
 ## Team workflow
 

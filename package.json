@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:integration": "vitest run tests/integration",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
@@ -16,6 +17,9 @@
     "db:stop": "supabase stop",
     "db:status": "supabase status",
     "db:reset": "supabase db reset",
+    "db:test": "supabase test db",
+    "db:lint": "supabase db lint",
+    "db:seed": "node --env-file=.env.local scripts/seed-demo.mjs",
     "db:types": "supabase gen types typescript --local > src/types/database.types.ts"
   },
   "dependencies": {
